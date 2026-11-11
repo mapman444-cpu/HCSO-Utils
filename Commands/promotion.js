@@ -6,7 +6,7 @@ const {
 } = require('discord.js');
 
 const config = require('../config.js');
-const generateCaseId = require('../Utils/generatecaseId.js');
+const generateCaseId = require('../Utils/generatecaseid.js');
 
 const PROTECTED_ROLES = [
     "1553400726070239247",
