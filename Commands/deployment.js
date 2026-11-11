@@ -81,7 +81,7 @@ module.exports = {
                 .setTitle('HCSO Deployment')
                 .setDescription(
                     `Attention all deputies!\n` +
-                    `A new mass deployment is being started.}\n\n` +
+                    `A new mass deployment is being started.\n\n` +
                     `The deployment will start in: <t:${deploymentTime}:R>\n` +
                     `**Briefing & Comms:** ${briefing}\n` +
                     `**Equipment/Loadout:** ${equipment}\n\n` +
