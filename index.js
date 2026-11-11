@@ -53,6 +53,9 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 
     console.log(`[COMMAND] Loaded ${command.data.name}`);
+    if (command.requiredRoleId) {
+        console.log(`[PERMISSIONS] ${command.data.name}: ${command.requiredRoleId}`);
+    }
 }
 
 // Bot ready
@@ -77,7 +80,30 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     try {
+        // Check required role
+        if (command.requiredRoleId) {
+            if (!interaction.inGuild()) {
+                return interaction.reply({
+                    content: 'This command can only be used inside a server.',
+                    ephemeral: true
+                });
+            }
+
+            const member = await interaction.guild.members.fetch(
+                interaction.user.id
+            );
+
+            if (!member.roles.cache.has(command.requiredRoleId)) {
+                return interaction.reply({
+                    content: 'You do not have permission to use this command.',
+                    ephemeral: true
+                });
+            }
+        }
+
+        // Execute command
         await command.execute(interaction);
+
     } catch (error) {
         console.error(`[COMMAND ERROR] ${interaction.commandName}:`, error);
 

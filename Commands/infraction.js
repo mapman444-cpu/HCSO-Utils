@@ -25,6 +25,8 @@ function shouldProcessInteraction(interaction) {
 }
 
 module.exports = {
+    requiredRoleId: '1553400726078623811',
+
     data: new SlashCommandBuilder()
         .setName('infraction-issue')
         .setDescription('Issue an infraction to a deputy.')
@@ -92,7 +94,7 @@ module.exports = {
 
             // Build infraction embed
             const embed = new EmbedBuilder()
-                .setTitle(`${config.HCSO_LOGO || ''} Hart County Sheriff's Office Infraction`)    
+                .setTitle(`${config.HCSO_LOGO || ''} Hart County Sheriff's Office Infraction`)
                 .setThumbnail(targetUser.displayAvatarURL({ size: 1024 }))
                 .setImage('https://media.discordapp.net/attachments/1567303562776682567/1569863171475374222/infraction.png?ex=6af50082&is=6af3af02&hm=82dda2d90405326d157f7e1070be0de921ce8acf1293143950a18552219477c5&animated=true')
                 .addFields(
@@ -118,9 +120,9 @@ module.exports = {
             await logChannel.send({
                 embeds: [embed],
                 allowedMentions: {
-                   users: [...new Set([targetUser.id, interaction.user.id])],
-                   roles: [...new Set([rankRole.id, punishmentRole.id])]
-}
+                    users: [...new Set([targetUser.id, interaction.user.id])],
+                    roles: [...new Set([rankRole.id, punishmentRole.id])]
+                }
             });
 
             await interaction.editReply(

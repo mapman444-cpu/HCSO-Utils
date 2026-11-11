@@ -30,6 +30,8 @@ function shouldProcessInteraction(interaction) {
 }
 
 module.exports = {
+    requiredRoleId: '1553400726078623812',
+
     data: new SlashCommandBuilder()
         .setName('promotion-issue')
         .setDescription('Promote a deputy.')
@@ -144,9 +146,9 @@ module.exports = {
             await logChannel.send({
                 embeds: [embed],
                 allowedMentions: {
-                   users: [...new Set([targetUser.id, interaction.user.id])],
-                   roles: [...new Set([oldRank.id, newRank.id])]
-}
+                    users: [...new Set([targetUser.id, interaction.user.id])],
+                    roles: [...new Set([oldRank.id, newRank.id])]
+                }
             });
 
             await interaction.editReply(

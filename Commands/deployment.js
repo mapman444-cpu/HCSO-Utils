@@ -8,6 +8,8 @@ const {
 const config = require('../config.js');
 
 module.exports = {
+    requiredRoleId: '1570114326646226944',
+
     data: new SlashCommandBuilder()
         .setName('deployment')
         .setDescription('Post an HCSO deployment announcement.')
@@ -79,8 +81,8 @@ module.exports = {
                 .setTitle('HCSO Deployment')
                 .setDescription(
                     `Attention all deputies!\n` +
-                    `${message || 'A new deployment is being organized.'}\n\n` +
-                    `**Deployment Time:** <t:${deploymentTime}:R>\n` +
+                    `A new mass deployment is being started.}\n\n` +
+                    `The deployment will start in: <t:${deploymentTime}:R>\n` +
                     `**Briefing & Comms:** ${briefing}\n` +
                     `**Equipment/Loadout:** ${equipment}\n\n` +
                     `**React if Attending**\n\n` +
