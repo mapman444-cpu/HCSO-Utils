@@ -81,12 +81,13 @@ module.exports = {
                 .setTitle('HCSO Deployment')
                 .setDescription(
                     `Attention all deputies!\n` +
-                    `A new mass deployment is being started.\n\n` +
+                    `A new mass deployment is being hosted.\n` +
+                    '# Important Information Following:\n' +
                     `The deployment will start in: <t:${deploymentTime}:R>\n` +
                     `**Briefing & Comms:** ${briefing}\n` +
                     `**Equipment/Loadout:** ${equipment}\n\n` +
                     `**React if Attending**\n\n` +
-                    `*Protect your family, protect your property, and protect your future.*`
+                    `> Protect your family, protect your property, and protect your future.`
                 )
                 .setTimestamp();
 
